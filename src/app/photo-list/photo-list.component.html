@@ -1,0 +1,14 @@
+<div class="container">
+  <div *ngIf="!error">
+     <div *ngFor="let photo of photos" class="photo-item">
+      <a [href]="photo.url" target="_blank">
+        <img [src]="photo.thumbnailUrl" [alt]="photo.title" />
+      </a>
+      <p>{{ photo.title }}</p>
+    </div>
+    <div>
+      <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+    </div>
+  <div *ngIf="error">{{ error }}</div>
+</div>
